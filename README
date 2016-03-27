@@ -1,5 +1,4 @@
 /* Mohini Banerjee
-   May 23, 2014
    Biotris.java
    This program demonstrates my knowledge I gained throughout this year in java. This is a modified version of tetris with an educational aspect of biology questions. Blocks will be falling from the top of the screen on a timer. They will land in the next available grid square. The user can contol the postion of the blocks by usuing 'a' to move it to the left, 's' to move it down, 'w' to move it up, and 'd' to move it to right. When there is one empty grid square surrounded by full grid squares, a question mark will appear. The user may click on the question mark and a question will appear on the screen. If the question is answered correctly, 100 points are awarded and a block appears on that square. If answered incorrectly, 50 points are taken away. In addition, points are awarded when an entire row of blocks are filled. If the user wishes to reset the game at any moment, they may do so by pressing 'r'. 
 
