@@ -1,7 +1,7 @@
 /* Mohini Banerjee
    May 23, 2014
    Biotris.java
-   This program demonstrates how developed a game using Java and the Swing UI package. This is a modified version of Tetris which is modified by integrating questions from biology into the game moves. Blocks will be falling from the top of the screen on a timer. They will land in the next available grid square. The user can contol the postion of the blocks by usuing 'a' to move it to the left, 's' to move it down, 'w' to move it up, and 'd' to move it to right. When there is one empty grid square surrounded by full grid squares, a question mark will appear. The user may click on the question mark and a question will appear on the screen. If the question is answered correctly, 100 points are awarded and a block appears on that square. If answered incorrectly, 50 points are taken away. In addition, points are awarded when an entire row of blocks are filled. If the user wishes to reset the game at any moment, they may do so by pressing 'r'. 
+   This program demonstrates my knowledge I gained throughout this year in java. This is a modified version of tetris with an educational aspect of biology questions. Blocks will be falling from the top of the screen on a timer. They will land in the next available grid square. The user can contol the postion of the blocks by usuing 'a' to move it to the left, 's' to move it down, 'w' to move it up, and 'd' to move it to right. When there is one empty grid square surrounded by full grid squares, a question mark will appear. The user may click on the question mark and a question will appear on the screen. If the question is answered correctly, 100 points are awarded and a block appears on that square. If answered incorrectly, 50 points are taken away. In addition, points are awarded when an entire row of blocks are filled. If the user wishes to reset the game at any moment, they may do so by pressing 'r'. 
 */
 
 import java.awt.*; 
@@ -15,9 +15,9 @@ import javax.imageio.*;
 
 
 public class Biotris{
-    JFrame frame;		//The overall, main frame in which the game is played.
+    JFrame frame;		//The overall frame in which the game is played.
     MyCardPanel myCardPanel;	//The start, instructions, and game panel are created in this class, using a card layout.
-    int difficulty;		//The difficulty or level of the game, selected by the user. 5 is the easist and 1 is the most difficult.
+    int difficulty;		//The difficulty or level of the game, selected by the user. 5 is the easist and 1 is the hardest.
     Player[] players = new Player[100];	  //This array of players contains information about each player:
                                           //(their name, their highest score, their level) and is written to a text file Players.txt.			
     StatusBar statusBar;	//The status bar that displays the status and score of the game, and indicates when the game is over. 
@@ -54,7 +54,7 @@ public class Biotris{
 	    //System.out.println("Reading player: " + player.name + " from players.txt");
 	    player.highestScore = Integer.parseInt(playersFile.nextLine());
 	    player.level = Integer.parseInt(playersFile.nextLine());
-	    players[index] = player;	//Filling the parameter array with objects of type Player. 
+	    players[index] = player;	//Filling the parameter array with objects of type player. 
 	    index++;
 	}
 	try {
@@ -119,7 +119,7 @@ public class Biotris{
 	public MyCardPanel(){
 	    //Creating each panel and setting the layout.
 	    cards = new CardLayout();
-	    setLayout(cards);//default layout
+	    setLayout(cards);
 	    panel1 = new StartPanel(Color.white);
 	    panel2 = new InstructionsPanel(Color.green);
 	    gamePanel = new GamePanel(Color.white);
@@ -163,7 +163,7 @@ public class Biotris{
 		try{
 		    tetrisImage = ImageIO.read(new File(imageName));		
 		}catch(IOException e){
-		    System.err.println("ERROR: Cannot read the image file." + e);
+		    System.err.println("ERROR: Cannot read image file." + e);
 		    System.exit(1);
 		}
 	    }
@@ -192,14 +192,14 @@ public class Biotris{
 	    }
 
 	    public void paintComponent(Graphics g){
-		//System.out.println(">StartPanel.paintComponent()");
+		//System.out.println(">StartPanel.paintComponent");
 		super.paintComponent(g);
 		//Drawing the title with a flashing text color. 
 		g.setFont(new Font("Arial", Font.BOLD, 50));
 		g.setColor(textColor);
 		g.drawString("Welcome to Biotris", 60, 50);
 
-		//System.out.println("<StartPanel.paintComponent()");
+		//System.out.println("<StartPanel.paintComponent");
 
 		g.drawImage(tetrisImage, 100, 70, 400, 400, this);
 	    }
@@ -223,7 +223,7 @@ public class Biotris{
 		    case 5: sp.textColor = Color.magenta; break;
 		    }
 		    repaint();
-		    //System.out.println("<StartPanel.actionPerformed()");
+		    //System.out.println("<StartPanel.actionPerformed");
 		}
 	    }  
 	}
@@ -240,7 +240,7 @@ public class Biotris{
 		add(cardPanel, BorderLayout.CENTER);
 
 		//Creating the instructions title. 
-		instructions = new JLabel("                 Instructions"); //message
+		instructions = new JLabel("                 Instructions");
 		instructions.setFont(new Font("Arial", Font.BOLD, 40));
 		instructions.setForeground(Color.yellow);
 		instructions.setPreferredSize(new Dimension(616,100));
